@@ -2,8 +2,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Web.API.Demo.Controllers
 {
+	// The default place for Routing is here
 	[ApiController]
-	[Route("[controller]")]
+	[Route("api/[controller]")] // Originally it was like this [Route("[controller]")]
 	public class WeatherForecastController : ControllerBase
 	{
 		private static readonly string[] Summaries = new[]

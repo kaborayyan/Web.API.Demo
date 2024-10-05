@@ -7,15 +7,17 @@ namespace Web.API.Demo
 		{
 			var builder = WebApplication.CreateBuilder(args);
 
+			#region Configure Services
 			// Add services to the container.
-
 			builder.Services.AddControllers();
 			// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-			builder.Services.AddEndpointsApiExplorer();
-			builder.Services.AddSwaggerGen();
+			builder.Services.AddEndpointsApiExplorer(); // For Swagger
+			builder.Services.AddSwaggerGen(); // For Swagger
+			#endregion
 
 			var app = builder.Build();
 
+			#region Configure the middle ware
 			// Configure the HTTP request pipeline.
 			if (app.Environment.IsDevelopment())
 			{
@@ -28,7 +30,8 @@ namespace Web.API.Demo
 			app.UseAuthorization();
 
 
-			app.MapControllers();
+			app.MapControllers(); 
+			#endregion
 
 			app.Run();
 		}
